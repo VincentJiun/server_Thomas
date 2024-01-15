@@ -229,4 +229,36 @@
 
 > 設定 urls.py
 
-## 靜態文件 (static)
+### 靜態文件 (static)
+- 由網路連結(urls.py) 經由(views.py)計算執行後，將資料送到模板，最後將結果顯示至客戶端
+
+- 直接顯示 .html 檔 (方法):
+    
+    1. 專案目錄下 建立一個 static 資料夾
+    2. /settings.py
+        - STATIC_URL = 'static/'
+        - STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+    3. 開啟瀏覽器
+        - http://localhost:8000/static/靜態網頁.html
+
+## 表單 (Form)
+
+### method
+- get : web-url/?參數一=xxxx&參數二=xxxx -> 表單內參數會顯示在網址列上
+- post : 開啟另一條連線傳送參數，所以不會在網址列上顯示。
+
+### csrf
+- 先關閉"跨站請求攻擊"的保護
+    - {% csrf_token %}
+
+## 資料庫
+
+### MySQL安裝
+1. 
+
+### MySQL備份
+> mysqldump -u 帳號 -p --routines 資料庫名 > outputfile.sql
+
+### MySQL還原
+> mysql -u 帳號 -p --default-character-set=utf8 資料庫名 < outputfile.sql
+- 資料庫語系必須為 utf8/utf8_unicode_ci.
